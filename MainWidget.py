@@ -53,14 +53,15 @@ class MainWidget(QMainWindow):
 		layout.addWidget(self.filterS)
 		###
 
-		### texture 
-		self.filterT = FileInfoAndSelectorBox("Texture", "png", 1)
-		layout.addWidget(self.filterT)
+		### texture use?
+		self.useT = CustomRadioButtonGroup(title = "Use LUT ?", options = ["Yes", "No"])
+		layout.addWidget(self.useT)
 		###
 
-		### texture use?
-		self.useT = CustomRadioButtonGroup(title = "Use Texture ?", options = ["Yes", "No"])
-		layout.addWidget(self.useT)
+		### texture 
+		self.filterT = FileInfoAndSelectorBox("LUT", "png", 1)
+		layout.addWidget(self.filterT)
+		self.useT.onChange = self.onLUTStateChange
 		###
 
 		### out-file dir select
@@ -108,6 +109,13 @@ class MainWidget(QMainWindow):
 		self.button_run.clicked.connect(self.run_script)
 		layout.addWidget(self.button_run)
 		###
+
+	def onLUTStateChange(self, cur : str ) :
+		print("state : " + cur)
+		if( cur == "No" ):
+			self.filterT.hide()
+		else:
+			self.filterT.show()
 
 	# download location onClick
 	@pyqtSlot()
