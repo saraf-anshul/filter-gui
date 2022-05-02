@@ -12,6 +12,7 @@ from StorageUtils import *
 from PyQt5.QtCore import pyqtSlot ,Qt
 from LabelEditText import LabelEditText
 from FileInfoAndSelectorBox import FileInfoAndSelectorBox
+from CustomRadioButtonGroup import CustomRadioButtonGroup
 
 from PyQt5.QtGui import QIntValidator,QDoubleValidator
 
@@ -55,6 +56,11 @@ class MainWidget(QMainWindow):
 		### texture 
 		self.filterT = FileInfoAndSelectorBox("Texture", "png", 1)
 		layout.addWidget(self.filterT)
+		###
+
+		### texture use?
+		self.useT = CustomRadioButtonGroup(title = "Use Texture ?", options = ["Yes", "No"])
+		layout.addWidget(self.useT)
 		###
 
 		### out-file dir select
@@ -121,11 +127,11 @@ class MainWidget(QMainWindow):
 			json.dump({'last' : oDir} ,F)
 
 		sf = self.filterT.selectedFiles
-		hasTex = False
+		hasTex = self.useT.selected == "Yes"
 		t = None
-		if( len(sf) > 0 ):
-			hasTex = True
-			t = sf[0]
+		if( hasTex and len(sf) > 0 ):
+			# hasTex = True
+			t = sf[0] # cp: None: No such file or directory
 
 		name = self.inputTB.getText()
 		b = self.filterB.getText()

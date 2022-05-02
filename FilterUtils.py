@@ -1,10 +1,10 @@
 
 def getIndexFileData(name) ->str :
-    return f"""
+    return f'''
 Filter: {name}
 Material:
-  Path: {name}.mat
-"""
+ Path: {name}.mat
+'''
 
 def getFilterData(name, b, c, s, hasTex) -> str :
     return f'''#type vertex
@@ -346,60 +346,60 @@ vec4 fragment(){{
 
 #type shader_data
 {{
-  "ShaderData" : [
+  \\"ShaderData\\" : [
     {{
-      "type" : "Video2D",
-      "value" : "Platform",
-      "name" : "u_Texture",
-      "function" : "fragment"
+      \\"type\\" : \\"Video2D\\",
+      \\"value\\" : \\"Platform\\",
+      \\"name\\" : \\"u_Texture\\",
+      \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Texture2D",
-        "value" : "lookup.png",
-        "name" : "u_LUT_Texture",
-        "function" : "fragment"
+        \\"type\\" : \\"Texture2D\\",
+        \\"value\\" : \\"lookup.png\\",
+        \\"name\\" : \\"u_LUT_Texture\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "{b}",
-        "name" : "u_Brightness",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"{b}\\",
+        \\"name\\" : \\"u_Brightness\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "{c}",
-        "name" : "u_Contrast",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"{c}\\",
+        \\"name\\" : \\"u_Contrast\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "{s}",
-        "name" : "u_Saturation",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"{s}\\",
+        \\"name\\" : \\"u_Saturation\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "0.5",
-        "name" : "u_Temprature",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"0.5\\",
+        \\"name\\" : \\"u_Temprature\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "0.5",
-        "name" : "u_Tint",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"0.5\\",
+        \\"name\\" : \\"u_Tint\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Float",
-        "value" : "1.0",
-        "name" : "u_Intensity",
-        "function" : "fragment"
+        \\"type\\" : \\"Float\\",
+        \\"value\\" : \\"1.0\\",
+        \\"name\\" : \\"u_Intensity\\",
+        \\"function\\" : \\"fragment\\"
     }},
     {{
-        "type" : "Int",
-        "value" : "{1 if hasTex else 0}",
-        "name" : "u_ApplyLUT",
-        "function" : "fragment"
+        \\"type\\" : \\"Int\\",
+        \\"value\\" : \\"{1 if hasTex else 0}\\",
+        \\"name\\" : \\"u_ApplyLUT\\",
+        \\"function\\" : \\"fragment\\"
     }}
   ]
 }}'''
